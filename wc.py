@@ -9,19 +9,27 @@ import sys
 
 
 def count_words(file):
-	return 19
+	with open(file) as f:
+		file = f.read()
+	return len(file.split(' '))
 
 
 def count_lines(file):
-	return 7
+	with open(file) as f:
+		file = f.read()
+	return len(file.split('\n')) - 1
 
 
 def count_char(file):
-	return 102
+	with open(file) as f:
+		file = f.read()
+	return len(file)
 
 
 def count_bytes(file):
-	return 102
+	with open(file) as f:
+		file = f.read()
+	return len(file)
 
 
 def main():
@@ -42,8 +50,7 @@ def main():
 	# file variable
 	file = args[-1]
 	# going to need to address file not found error as well as file not supplied error
-	with open(file) as f:
-		file = f.read()
+	
 	return_values = {"word_count": 0, "line_count": 0, "char_count": 0, "byte_count": 0}
 
 
